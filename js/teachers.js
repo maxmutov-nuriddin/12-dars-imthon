@@ -144,7 +144,7 @@ async function getTeach() {
       <button page="+" class="page-link">Nex</button>
     </li>`;
 
-    teachLength.innerHTML = dataWithPagination.length;
+    teachLength.innerHTML = data.length;
     if (data.length === 0) {
       teachInner.innerHTML = "Not Found Teach.";
     } else {
