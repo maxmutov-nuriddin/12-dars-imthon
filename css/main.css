@@ -21,13 +21,8 @@ body {
   top: 0;
   bottom: 0;
   position: absolute;
-  background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #338248, #1ddde8, #241b95, #dd00f3, #dd00f3);
-  background-size: 1800% 1800%;
+  background-color: #000 !important;
 
-  -webkit-animation: rainbow 18s ease infinite;
-  -z-animation: rainbow 18s ease infinite;
-  -o-animation: rainbow 18s ease infinite;
-  animation: rainbow 18s ease infinite;
 }
 
 @-webkit-keyframes rainbow {
@@ -233,4 +228,58 @@ select {
   100% {
     transform: rotate(360deg);
   }
+}
+
+
+
+.center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: prespective(1000px) translate(-50%, -50%);
+  transform: skewY(15deg);
+  transition: 0.7s;
+}
+
+.center:hover {
+  transform: prespective(1000px) translate(-50%, -50%);
+  transform: skewY(0deg);
+}
+
+.center h1 span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-size: 5em;
+  color: #fff !important;
+  transform-style: preserve-3d;
+  transition: 0.8s;
+}
+
+.center h1 span:nth-child(1) {
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.center h1 span:nth-child(2) {
+  color: #5E17EB !important;
+  transform: translate(-50%, -50%) skewX(-60deg);
+  left: -38px;
+  clip-path: polygon(0 45%, 100% 45%, 100% 55%, 0 55%);
+}
+
+.center h1 span:nth-child(3) {
+  transform: translate(-50%, -50%) skewY(0deg);
+  left: -76px;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+.center:hover h1 span:nth-child(2),
+.center:hover h1 span:nth-child(3) {
+  transform: translate(-50%, -50%) skewX(0deg);
+  left: 0;
+  color: #fff !important;
 }
