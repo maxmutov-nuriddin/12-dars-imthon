@@ -149,7 +149,7 @@ studentForm.addEventListener('submit', async function (e) {
     firstName: firstName.value,
     lastName: lastName.value,
     avatar: avatar.value,
-    birthDayStudents: birthDayStudents.value,
+    birthDayStudents: birthDayStudents.value.split("T")[0],
     phoneNumber: number.value,
     email: email.value,
     isWork: isWork.checked,
