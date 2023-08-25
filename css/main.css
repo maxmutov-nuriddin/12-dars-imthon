@@ -279,3 +279,46 @@ select {
       filter: hue-rotate(360deg);
   }
 }
+
+/*  */
+
+
+.box{
+  position: fixed !important;
+	position: absolute;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	top: 6%;
+	left: 4%;
+  z-index: 11;
+}
+.container-box{
+	width: 200px;
+}
+.clock{
+	height: 100%;
+	width: 100%;
+	padding: 20px 12px;
+	border-radius: 8px;
+}
+
+.wrapper{
+	text-align: center;
+}
+#time{
+	font-size: 20px;
+	display: inline-block;
+}
+#day{
+	position: relative;
+	font-size: 13px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: #c5c5c5;
+	text-align: center;
+}
+#midday{
+	display: inline-block;
+	font-size: 20px;
+}
