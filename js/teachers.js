@@ -249,7 +249,7 @@ window.addEventListener("click", async (e) => {
       teacherForm.groups.value = data.groups,
       number.value = data.phoneNumber,
       teacherForm.email.value = data.email,
-      isMarried.checked = data.isMarried,
+      isMarried.checked = data.isMaried,
       saveBtn.textContent = "Save teacher";
   }
 
