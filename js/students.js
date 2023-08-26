@@ -96,7 +96,13 @@ async function getTeach() {
       console.log(data);
 
       studentInner.innerHTML = "";
-      teachLength.innerHTML = data.length;
+
+      if (data.length == 0) {
+        studentInner.innerHTML = "No students found."
+        teachLength.innerHTML = data.length;
+      } else {
+        teachLength.innerHTML = data.length;
+      }
 
       data.map(element => {
         studentInner.innerHTML += studentMapping(element);
