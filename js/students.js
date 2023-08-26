@@ -30,7 +30,7 @@ let saveBtn = document.querySelector('.save-btn');
 
 // Default code
 nameSort.innerHTML = '<option value="all">All</option>';
-teachFilter.innerHTML = '<option value="0">All</option>';
+teachFilter.innerHTML = `<option value="${studentId}">All</option>`;
 let search = "";
 let selected = null;
 
@@ -68,10 +68,6 @@ nameSort.addEventListener("change", function () {
   getTeach();
 });
 
-// teachFilter.addEventListener("change", function () {
-//   search = teacherSearch.value;
-//   getTeach();
-// });
 
 async function getTeach() {
   studentInner.append(loader());
@@ -93,14 +89,27 @@ async function getTeach() {
       teachFilter.innerHTML += `<option value="${i.id}">${i.firstName}</option>`;
     });
 
-    teachFilter.addEventListener('change', () => {
-      // console.log(teachFilter.value);
-      let ad = teachFilter.value
-      localStorage.setItem('teachFilterStudents', ad)
-    })
-    
-    
+    teachFilter.addEventListener('change', async function () {
+      let ad = teachFilter.value;
+      console.log(ad);
+      const { data } = await request.get(`Teacher/${ad}/Students`, { params });
+      console.log(data);
 
+      studentInner.innerHTML = "";
+      teachLength.innerHTML = data.length;
+
+      data.map(element => {
+        studentInner.innerHTML += studentMapping(element);
+        const studentInnerElements = document.querySelectorAll('.element');
+        studentInnerElements.forEach(elem => {
+          if (elem.innerText.includes(element.innerText) || element.innerText == "All") {
+            elem.parentElement.parentElement.parentElement.style.display = "grid";
+          } else {
+            elem.parentElement.parentElement.parentElement.style.display = "none";
+          }
+        });
+      });
+    });
 
     // sort data
     if (nameSort.value !== "all") {
