@@ -204,6 +204,7 @@ openModalBtn.addEventListener("click", () => {
 
 // logic search 
 teacherSearch.addEventListener("keyup", function () {
+  activePage = 1
   search = this.value;
   getTeach();
 });
@@ -242,7 +243,7 @@ window.addEventListener("click", async (e) => {
   if (checkEdit) {
     selected = id;
     let { data } = await request.get(`Teacher/${id}`);
-    // console.log(data);
+    // console.log(data); 
     teacherForm.firstName.value = data.firstName,
       teacherForm.lastName.value = data.lastName,
       teacherForm.avatar.value = data.avatar,
