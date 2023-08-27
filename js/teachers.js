@@ -45,7 +45,7 @@ function teacherMapping(teachers) {
       <div class="d-flex justify-content-start gap-3">      
       ${teachers.groups.map(group => `<p class="card-text">${group}</p>`).join("")}
       </div>
-      <p class="card-text">${teachers.phoneNumber}</p>
+      <p class="card-text">${teachers.phoneNumber.split("x")[0]}</p>
       <p class="card-text">${teachers.email}</p>
       <p class="card-text">${teachers.isMaried ? "married" : "not married"}</p>
       <button id="${teachers.id}"  class="btn edit-btn" data-bs-toggle="modal" data-bs-target="#studentModal">Edit</button>
@@ -169,7 +169,7 @@ teacherForm.addEventListener('submit', async function (e) {
     lastName: this.lastName.value,
     avatar: this.avatar.value,
     groups: this.groups.value.split(" "),
-    phoneNumber: number.value,
+    phoneNumber: number.value.split("x")[0],
     email: this.email.value,
     isMaried: isMarried.checked,
   };
