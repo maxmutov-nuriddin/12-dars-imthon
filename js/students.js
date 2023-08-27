@@ -51,7 +51,7 @@ function studentMapping(student) {
         </div>
         <p class="card-text">${student.birthDay.split("T")[0]}</p>
         <p class="card-text">${student.email}</p>
-        <p class="card-text">${student.phoneNumber.replace(/ x\d+$/, '')}</p>
+        <p class="card-text">${student.phoneNumber.split("x")[0]}</p>
         <p class="card-text">${student.isWork ? "worked" : "not work"}</p>
         <div class="d-flex justify-content-center gap-3">
           <button id="${student.id}" class="btn edit-btn" data-bs-toggle="modal" data-bs-target="#studentModal">Edit</button>
@@ -226,7 +226,7 @@ window.addEventListener("click", async (e) => {
     lastName.value = data.lastName;
     avatar.value = data.avatar;
     birthDayStudents.value = data.birthDay.split("T")[0];
-    number.value = data.phoneNumber;
+    number.value = data.phoneNumber.split("x")[0];
     email.value = data.email;
     isWork.checked = data.isWork;
     saveBtn.textContent = "Save student";
