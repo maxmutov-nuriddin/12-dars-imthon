@@ -115,6 +115,7 @@ async function getTeach() {
     if (marriedFilter.value !== "all") {
       dataWithPagination = data.filter((filters) => {
         if (marriedFilter.value !== "true") {
+          console.log(filters.isMaried === true);
           return filters.isMaried === true;
         } else {
           return filters.isMaried === false;

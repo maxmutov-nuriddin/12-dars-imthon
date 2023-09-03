@@ -1,5 +1,5 @@
 const queryString = new URLSearchParams(location.search);
-const studentId = queryString.get("students");
+let studentId = queryString.get("students");
 
 let birthData = ["asc", "desc",]
 // console.log(studentId);
@@ -91,6 +91,7 @@ async function getTeach() {
 
     teachFilter.addEventListener('change', async function () {
       let ad = teachFilter.value;
+      studentId = ad
       console.log(ad);
       const { data } = await request.get(`Teacher/${ad}/Students`, { params });
       console.log(data);
